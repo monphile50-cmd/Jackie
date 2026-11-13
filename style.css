@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #fff0f5, #f8bbd0, #fce4ec);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #444;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    max-width: 550px;
+    padding: 50px 35px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(150, 50, 90, 0.15);
+    animation: fadeIn 0.8s ease;
+}
+
+h1 {
+    color: #ad1457;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+h2 {
+    color: #880e4f;
+    font-size: 21px;
+    margin: 25px 0;
+}
+
+p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    margin: 14px auto;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 35px;
+    background: #c2185b;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #880e4f;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(194, 24, 91, 0.2);
+}
+
+button:focus-visible {
+    outline: 3px solid #880e4f;
+    outline-offset: 4px;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 35px 22px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+}/* Smooth transitions between screens */
+.container section:not(.hidden) {
+    animation: screenReveal 0.7s ease forwards;
+}
+
+@keyframes screenReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .container section:not(.hidden) {
+        animation: none;
+    }
+
+    button {
+        transition: none;
+    }
+}
